@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { authGuard } from "../../core/guards/auth.guard";
 import { roleGuard } from "../../core/guards/role.guard";
-// import { NotFoundComponent } from "../../shared/components/not-found/not-found.component";
+import { NotFoundComponent } from "../../shared/components/not-found/not-found.component";
 
 export const layoutRoutes: Routes = [
     {
@@ -40,13 +40,13 @@ export const layoutRoutes: Routes = [
         canActivate: [authGuard, roleGuard],
         data: { expectedRole: 'Administrador' }
     },
-    // {
-    //     path: '401 No autorizado', // Ruta para la página 404
-    //     component: NotFoundComponent
-    // },
-    // {
-    //     path: '**', // Cualquier otra ruta no definida lleva a la página 404
-    //     redirectTo: '401 No autorizado'
-    // }
+    {
+        path: '401 No autorizado', // Ruta para la página 404
+        component: NotFoundComponent
+    },
+    {
+        path: '**', // Cualquier otra ruta no definida lleva a la página 404
+        redirectTo: '401 No autorizado'
+    }
 
 ]
