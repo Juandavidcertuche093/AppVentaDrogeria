@@ -139,9 +139,11 @@ export class ModalmedicamentosComponent implements OnInit{
             this.utilidadServicio.mostrarAlerta('El medicamento se registro','Exito')
             this.modalActual.close('true')
           } else
-            this.utilidadServicio.mostrarAlerta('No se pudo registrar el medicmaneto','Error')
+            this.utilidadServicio.mostrarAlerta(data.msg,'Error')
         },
-        error:(e) => {}
+        error:(e) => {
+          this.utilidadServicio.mostrarAlerta("Ocurrió un error al guardar el medicamento.", "Error");
+        }
       })
     } else
       //logica para actualizar productos
