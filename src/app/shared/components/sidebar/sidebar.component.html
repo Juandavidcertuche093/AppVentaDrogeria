@@ -10,13 +10,14 @@
 
         <!-- Botón para notificaciones con menú desplegable -->
         <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
-            <mat-icon 
-                matBadge="{{ medicamentosStockBajo.length > 0 ? medicamentosStockBajo.length : '' }}" 
-                matBadgeColor="warn">
+            <mat-icon
+                matBadge="{{ medicamentosStockBajo.length > 0 ? medicamentosStockBajo.length : '' }}"
+                matBadgeColor="warn"
+                aria-hidden="false">
                 notifications
             </mat-icon>
         </button>
-    
+
         <!-- Menú desplegable para mostrar notificaciones -->
         <mat-menu #notificationMenu="matMenu" [overlapTrigger]="false" class="custom-notification-menu">
             <ng-container>
@@ -47,7 +48,7 @@
                     </button>
                 </ng-container>
 
-                
+
             </ng-container>
         </mat-menu>
 
@@ -64,13 +65,13 @@
 
 <mat-sidenav-container>
 
-    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">        
+    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
         <!-- <app-custom-sidenav [collapsed]="collapse()"/> -->
         <mat-nav-list class="sidenav-header">
-            <a 
+            <a
                 mat-list-item
                 class="menu-item"
-                *ngFor="let menu of listaMenus" 
+                *ngFor="let menu of listaMenus"
                 [routerLink]="menu.url"
                 routerLinkActive="selected-menu-item"
                 #rla="routerLinkActive"
